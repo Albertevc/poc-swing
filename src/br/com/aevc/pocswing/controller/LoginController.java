@@ -21,6 +21,11 @@ public class LoginController {
 	
 	private LoginController() {
 	}
+	
+	public ControllerResult<Boolean> doLogin(String usuario, Long senha) {
+		doLogin(usuario, senha.toString());
+		return null;
+	}
 
 	public ControllerResult<Boolean> doLogin(String usuario, String senha) {
 

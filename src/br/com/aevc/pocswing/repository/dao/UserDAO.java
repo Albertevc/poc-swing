@@ -61,7 +61,7 @@ public class UserDAO extends DAO<Usuario> {
 	 *                      o banco de dados
 	 */
 	public Usuario select(String name) throws SQLException {
-		return select("SELECT * FROM " + tableName + " WHERE " + "nome ilike '" + name + "';", USUARIO_DAO_MAPPER);
+		return select("SELECT * FROM " + tableName + " WHERE " + "nome like '" + name + "';", USUARIO_DAO_MAPPER);
 	}
 
 }

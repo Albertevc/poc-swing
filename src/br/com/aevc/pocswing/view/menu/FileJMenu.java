@@ -2,6 +2,7 @@ package br.com.aevc.pocswing.view.menu;
 
 import br.com.aevc.pocswing.controller.LoginController;
 import br.com.aevc.pocswing.view.login.LoginJOptionPaneLoader;
+import br.com.aevc.pocswing.view.product.ProductRegistrationJPanel;
 import br.com.aevc.pocswing.view.user.UserRegistrationJPanel;
 
 import java.awt.Toolkit;
@@ -26,7 +27,7 @@ class FileJMenu extends JMenu {
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/gear.png")))));
 		addSeparator();
 
-		JMenuItem addUser = new JMenuItem("Registrar");
+		JMenuItem addUser = new JMenuItem("Cadastro de Usuários");
 		addUser.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -34,6 +35,16 @@ class FileJMenu extends JMenu {
 			}
 		});
 		add(addUser);
+		addSeparator();
+		
+		JMenuItem cadastroDeProdutos = new JMenuItem("Cadastro de Produtos");
+		cadastroDeProdutos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new ProductRegistrationJPanel();
+			}
+		});
+		add(cadastroDeProdutos);
 		addSeparator();
 
 
