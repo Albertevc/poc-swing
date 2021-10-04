@@ -1,17 +1,16 @@
 package br.com.aevc.pocswing.view.menu;
 
-import br.com.aevc.pocswing.controller.LoginController;
-import br.com.aevc.pocswing.view.login.LoginJOptionPaneLoader;
+import br.com.aevc.pocswing.view.login.LoginPanel;
 import br.com.aevc.pocswing.view.product.ProductRegistrationJPanel;
 import br.com.aevc.pocswing.view.user.UserRegistrationJPanel;
 
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+//import br.com.aevc.pocswing.view.product.ProductRegistrationJPanel;
+//import br.com.aevc.pocswing.view.user.UserRegistrationJPanel;
 
 /**
  * @author alber
@@ -24,7 +23,7 @@ class FileJMenu extends JMenu {
 	public FileJMenu() {
 		super("Arquivo");
 		add(new JMenuItem("Configuração",
-				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/gear.png")))));
+				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/icon/gear.png")))));
 		addSeparator();
 
 		JMenuItem addUser = new JMenuItem("Cadastro de Usuários");
@@ -53,8 +52,8 @@ class FileJMenu extends JMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				LoginController.logoff();
-				LoginJOptionPaneLoader.showLoginDialog(null);
+//				LoginController.logoff();
+				LoginPanel.showLoginDialog();
 			}
 		});
 		add(sairJMenuItem);

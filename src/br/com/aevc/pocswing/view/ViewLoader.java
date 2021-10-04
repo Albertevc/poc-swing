@@ -10,16 +10,10 @@ public class ViewLoader {
 
 	private static JFrame mainView;
 
-	public static void load() {
+	public static JFrame load() {
 		if (mainView == null) {
-			mainView = new MainView("Main Panel");
-			mainView.add(new MainPanel());
-			mainView.validate();
+			mainView = new MainView(new MainPanel());
 		}
-
-	}
-
-	public static JFrame getMainView() {
 		return mainView;
 	}
 

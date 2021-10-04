@@ -1,8 +1,9 @@
 package br.com.aevc.pocswing.view.user;
 
 import br.com.aevc.pocswing.controller.ControllerResult;
-import br.com.aevc.pocswing.controller.RegisterController;
-import br.com.aevc.pocswing.model.Usuario;
+import br.com.aevc.pocswing.controller.UserController;
+import br.com.aevc.pocswing.model.User;
+
 import javax.swing.*;
 
 /**
@@ -11,7 +12,7 @@ import javax.swing.*;
 public class UserRegistrationJPanel extends JPanel {
 
 	private static final long serialVersionUID = -1941098188860327226L;
-	private Usuario user;
+	private User user;
 
 	public UserRegistrationJPanel() {
 		super();
@@ -28,15 +29,15 @@ public class UserRegistrationJPanel extends JPanel {
 
 			if (confirmDialogOption == JOptionPane.OK_OPTION) {
 				user = userRegisterForm.getUser();
-				RegisterController registerController = RegisterController.getInstance();
-				ControllerResult<Boolean> result = registerController.doRegister(user);
+				UserController registerController = UserController.getInstance();
+				ControllerResult result = registerController.register(user);
 
-				if (result.getResult()) {
-					JOptionPane.showMessageDialog(this, result.getMessage(), "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+				if (result.errorHappened()) {
+//					JOptionPane.showMessageDialog(this, result.getMessage(), "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 					isToContinueLoop = false;
 
 				} else {
-					JOptionPane.showMessageDialog(null, result.getMessage(), "Falha ao resigtrar usuário", JOptionPane.ERROR_MESSAGE);
+//					JOptionPane.showMessageDialog(null, result.getMessage(), "Falha ao resigtrar usuï¿½rio", JOptionPane.ERROR_MESSAGE);
 				}
 
 			} else if (confirmDialogOption == JOptionPane.CANCEL_OPTION || confirmDialogOption == JOptionPane.CLOSED_OPTION) {

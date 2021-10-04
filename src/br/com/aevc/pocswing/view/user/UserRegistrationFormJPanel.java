@@ -1,6 +1,7 @@
 package br.com.aevc.pocswing.view.user;
 
-import br.com.aevc.pocswing.model.Usuario;
+import br.com.aevc.pocswing.model.User;
+
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
@@ -21,14 +22,14 @@ public class UserRegistrationFormJPanel extends JPanel {
 		initClass();
 	}
 
-	public UserRegistrationFormJPanel(Usuario user) {
+	public UserRegistrationFormJPanel(User user) {
 		super();
 		initClass();
 
 		if (user != null) {
-			userName.setText(user.getNome());
-			userAge.setText(user.getIdade().toString());
-			matricula.setText(user.getMatricula());
+			userName.setText(user.getName());
+			userAge.setText(user.getAge().toString());
+			matricula.setText(user.getRegistration());
 		}
 	}
 
@@ -37,7 +38,7 @@ public class UserRegistrationFormJPanel extends JPanel {
 
 		labels.add(new JLabel("Nome:"));
 		labels.add(new JLabel("Idade:"));
-		labels.add(new JLabel("Matrícula:"));
+		labels.add(new JLabel("Matrï¿½cula:"));
 		labels.add(new JLabel("Senha:"));
 		labels.add(new JLabel("Confirmar Senha:"));
 		add(labels, BorderLayout.CENTER);
@@ -81,7 +82,7 @@ public class UserRegistrationFormJPanel extends JPanel {
 	}
 
 
-	public Usuario getUser() {
+	public User getUser() {
 		String nome = userName.getText();
 		String matricula = this.matricula.getText();
 		String userAgeText = userAge.getText();
@@ -89,9 +90,10 @@ public class UserRegistrationFormJPanel extends JPanel {
 		String senha = String.copyValueOf(password.getPassword());
 
 		if (!(nome.isBlank() || nome.isEmpty())) {
-			return new Usuario(nome, age, matricula, senha);
+			return new User(nome, age, matricula, senha);
 		} else {
 			return null;
 		}
 	}
+
 }
