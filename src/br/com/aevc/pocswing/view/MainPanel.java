@@ -1,11 +1,11 @@
 package br.com.aevc.pocswing.view;
 
-import br.com.aevc.pocswing.view.login.LoginPanel;
 import br.com.aevc.pocswing.view.menu.TopJMenuBar;
 
 import javax.swing.*;
 import java.awt.*;
 
+import static br.com.aevc.pocswing.view.login.LoginPanel.showLoginDialog;
 import static java.awt.BorderLayout.PAGE_START;
 import static javax.swing.BorderFactory.createEmptyBorder;
 
@@ -20,8 +20,7 @@ class MainPanel extends JPanel {
 
         add(new TopJMenuBar(), PAGE_START);
 
-//        showLoginDialog(this);
-        LoginPanel.showLoginDialog();
+        showLoginDialog();
     }
 
 }
