@@ -2,25 +2,25 @@ package br.com.aevc.pocswing.model;
 
 public class LoginResponseVO {
 
-    private final String nome;
-    private final String matricula;
-    private final boolean autenticado;
+    private final String name;
+    private final String registration;
+    private final boolean authenticated;
 
-    public LoginResponseVO(String nome, String matricula, boolean autenticado){
-        this.nome = nome;
-        this.matricula = matricula;
-        this.autenticado = autenticado;
+    public LoginResponseVO(String name, String registration, boolean authenticated){
+        this.name = name;
+        this.registration = registration;
+        this.authenticated = authenticated;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getRegistration() {
+        return registration;
     }
 
-    public boolean isAutenticado() {
-        return autenticado;
+    public boolean authenticated() {
+        return authenticated;
     }
 }

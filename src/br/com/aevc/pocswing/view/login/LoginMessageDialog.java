@@ -20,20 +20,20 @@ public class LoginMessageDialog {
                     format("Erro: %s.", loginControllerResult.getException().getMessage())
             );
         } else {
-            if (loginControllerResult.getResult().isAutenticado()) {
+            if (loginControllerResult.getResult().authenticated()) {
                 JOptionPane.showMessageDialog(
                         parentComponent,
-                        format("Bem vindo %s.", loginControllerResult.getResult().getNome())
+                        format("Bem vindo %s.", loginControllerResult.getResult().getName())
                 );
-            } else if (loginControllerResult.getResult().getNome() == null) {
+            } else if (loginControllerResult.getResult().getName() == null) {
                 JOptionPane.showMessageDialog(
                         parentComponent,
-                        format("Usuário %s não encontrado.", loginControllerResult.getResult().getMatricula())
+                        format("Usuário %s não encontrado.", loginControllerResult.getResult().getRegistration())
                 );
             } else {
                 JOptionPane.showMessageDialog(
                         parentComponent,
-                        format("Senha incorreta para %s.", loginControllerResult.getResult().getMatricula())
+                        format("Senha incorreta para %s.", loginControllerResult.getResult().getRegistration())
                 );
             }
         }

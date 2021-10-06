@@ -6,7 +6,7 @@ public class ControllerResult<T> {
     private final T result;
     private final Exception exception;
 
-	public static ControllerResult success(){
+	public static ControllerResult<Void> success(){
     	return new ControllerResult(null);
 	}
 

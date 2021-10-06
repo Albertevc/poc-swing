@@ -107,7 +107,6 @@ public class ProductDAO extends DAO {
 			} else {
 				return null;
 			}
-
 		}
 	}
 

@@ -11,8 +11,6 @@ import static br.com.aevc.pocswing.util.ApplicationPropertiesUtil.getProperty;
  */
 class MainView extends JFrame {
 
-	private static final long serialVersionUID = 8688799300953604464L;
-
 	public MainView(JPanel mainJPanel) {
 		super();
 		try {

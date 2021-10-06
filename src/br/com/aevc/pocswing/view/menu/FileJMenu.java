@@ -19,6 +19,7 @@ class FileJMenu extends JMenu {
 
     public FileJMenu() {
         super("Arquivo");
+
         add(
                 new JMenuItem("Configuração",
                         new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/icon/gear.png")))
@@ -35,6 +36,7 @@ class FileJMenu extends JMenu {
             }
         });
         add(addUser);
+
         addSeparator();
 
         JMenuItem cadastroDeProdutos = new JMenuItem("Cadastro de Produtos");
@@ -50,13 +52,13 @@ class FileJMenu extends JMenu {
 
         JMenuItem sairJMenuItem = new JMenuItem("Sair");
         sairJMenuItem.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 showLoginDialog();
             }
         });
         add(sairJMenuItem);
+
     }
 
 }

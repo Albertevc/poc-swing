@@ -8,7 +8,6 @@ import br.com.aevc.pocswing.service.exception.SystemException;
 
 import java.sql.SQLException;
 
-import static java.lang.String.format;
 import static java.util.Optional.ofNullable;
 
 public class LoginService {
@@ -25,7 +24,7 @@ public class LoginService {
                     new String(loginDTO.getPassword()).equals(nameAndPasswordVO.getPassword())
 			);
 		} catch (SQLException e) {
-            System.out.println(format("%s %s", e.getMessage(), e));
+            System.out.printf("%s %s%n", e.getMessage(), e);
             throw new SystemException(e.getMessage(), e);
         }
     }
