@@ -1,6 +1,6 @@
 package br.com.aevc.pocswing.view.menu;
 
-import javax.swing.JMenuBar;
+import javax.swing.*;
 
 /**
  * @author alber

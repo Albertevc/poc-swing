@@ -9,9 +9,9 @@ import static br.com.aevc.pocswing.util.ApplicationPropertiesUtil.getProperty;
  * @author alber
  *
  */
-class MainView extends JFrame {
+class MainJFrame extends JFrame {
 
-	public MainView(JPanel mainJPanel) {
+	public MainJFrame(Container contentPane, JMenuBar jMenuBar) {
 		super();
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -25,7 +25,8 @@ class MainView extends JFrame {
 			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 			setVisible(true);
 
-			add(mainJPanel);
+			setContentPane(contentPane);
+			setJMenuBar(jMenuBar);
 
 			validate();
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException

@@ -1,7 +1,7 @@
 package br.com.aevc.pocswing.view.menu;
 
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 /**
  * @author alber
@@ -13,6 +13,7 @@ class HelpJMenu extends JMenu {
 
 	public HelpJMenu() {
 		super("Ajuda");
+		setMnemonic(KeyEvent.VK_N);
 		add(new JMenuItem("Sobre"));
 	}
 

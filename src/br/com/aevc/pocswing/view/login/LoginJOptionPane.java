@@ -5,17 +5,17 @@ import br.com.aevc.pocswing.controller.LoginController;
 import br.com.aevc.pocswing.controller.UserSessionController;
 import br.com.aevc.pocswing.model.LoginDTO;
 import br.com.aevc.pocswing.model.LoginResponseVO;
-import br.com.aevc.pocswing.view.session.SessionJPanel;
+import br.com.aevc.pocswing.view.SwingApplication;
 
 import static javax.swing.JOptionPane.*;
 
-public class LoginPanel {
+public class LoginJOptionPane {
 
-    private static final LoginPanel LOGIN_PANEL = new LoginPanel();
+    private static final LoginJOptionPane LOGIN_PANEL = new LoginJOptionPane();
     private static final LoginController LOGIN_CONTROLLER = LoginController.getInstance();
     private static final UserSessionController USER_SESSION_CONTROLLER = UserSessionController.getInstance();
 
-    private LoginPanel() {
+    private LoginJOptionPane() {
     }
 
     private void showLoginDialog(LoginFormJPanel loginFormJPanel) {
@@ -39,13 +39,12 @@ public class LoginPanel {
 
             if (controllerResult.errorHappened() || !controllerResult.getResult().authenticated()) {
                 showLoginDialog(loginFormJPanel);
-                SessionJPanel.INSTANCE.setVisible(false);
             }else{
                 USER_SESSION_CONTROLLER.initSession(
                         controllerResult.getResult().getName(),
                         controllerResult.getResult().getRegistration()
                 );
-                SessionJPanel.INSTANCE.setVisible(true);
+                SwingApplication.showJMenuBar();
             }
 
         } else {

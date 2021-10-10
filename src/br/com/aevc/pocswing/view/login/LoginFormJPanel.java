@@ -1,13 +1,10 @@
 package br.com.aevc.pocswing.view.login;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
 import net.miginfocom.swing.MigLayout;
 
-public class LoginFormJPanel extends JPanel {
+import javax.swing.*;
+
+class LoginFormJPanel extends JPanel {
 
 	private static final long serialVersionUID = 9031784451368701659L;
 

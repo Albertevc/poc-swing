@@ -38,7 +38,7 @@ public class UserRegistrationFormJPanel extends JPanel {
 
 		labels.add(new JLabel("Nome:"));
 		labels.add(new JLabel("Idade:"));
-		labels.add(new JLabel("Matr�cula:"));
+		labels.add(new JLabel("Matrícula:"));
 		labels.add(new JLabel("Senha:"));
 		labels.add(new JLabel("Confirmar Senha:"));
 		add(labels, BorderLayout.CENTER);

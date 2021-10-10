@@ -1,14 +1,16 @@
 package br.com.aevc.pocswing.view.menu;
 
-import br.com.aevc.pocswing.view.product.ProductRegistrationJPanel;
-import br.com.aevc.pocswing.view.user.UserRegistrationJPanel;
+import br.com.aevc.pocswing.view.SwingApplication;
+import br.com.aevc.pocswing.view.product.ProductJInternalFrame;
+import br.com.aevc.pocswing.view.user.UserJInternalFrame;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
-import static br.com.aevc.pocswing.view.login.LoginPanel.showLoginDialog;
+import static br.com.aevc.pocswing.view.login.LoginJOptionPane.showLoginDialog;
 
 /**
  * @author alber
@@ -19,6 +21,7 @@ class FileJMenu extends JMenu {
 
     public FileJMenu() {
         super("Arquivo");
+        setMnemonic(KeyEvent.VK_N);
 
         add(
                 new JMenuItem("Configuração",
@@ -32,7 +35,7 @@ class FileJMenu extends JMenu {
         addUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new UserRegistrationJPanel();
+                SwingApplication.addJInternalFrame(new UserJInternalFrame(1));
             }
         });
         add(addUser);
@@ -43,7 +46,7 @@ class FileJMenu extends JMenu {
         cadastroDeProdutos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new ProductRegistrationJPanel();
+                SwingApplication.addJInternalFrame(new ProductJInternalFrame(2));
             }
         });
         add(cadastroDeProdutos);

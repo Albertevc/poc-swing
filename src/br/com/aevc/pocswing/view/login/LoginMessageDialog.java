@@ -8,7 +8,7 @@ import java.awt.*;
 
 import static java.lang.String.format;
 
-public class LoginMessageDialog {
+class LoginMessageDialog {
 
     public static void showMessageDialog(
             Component parentComponent,
