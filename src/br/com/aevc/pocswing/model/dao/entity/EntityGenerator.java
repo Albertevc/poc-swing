@@ -67,6 +67,8 @@ public class EntityGenerator {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }else{
+            System.out.println("Ignoring ddl generation.");
         }
     }
 

@@ -1,11 +1,14 @@
 package br.com.aevc.pocswing.service;
 
 import br.com.aevc.pocswing.model.Product;
+import br.com.aevc.pocswing.model.ProductSearchDTO;
+import br.com.aevc.pocswing.model.ProductVO;
 import br.com.aevc.pocswing.model.dao.ProductDAO;
 import br.com.aevc.pocswing.service.exception.BusinessException;
 import br.com.aevc.pocswing.service.exception.SystemException;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import static java.lang.String.format;
 
@@ -22,4 +25,12 @@ public class ProductService {
         }
     }
 
+    public List<ProductVO> search(ProductSearchDTO productSearchDTO) throws SystemException, BusinessException {
+        try {
+            return this.productDAO.selectProductsBy(productSearchDTO);
+        } catch (SQLException e) {
+            System.out.println(format("%s %s", e.getMessage(), e));
+            throw new SystemException(e.getMessage(), e);
+        }
+    }
 }

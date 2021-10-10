@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class ProductJTableScrollPaneFactory {
 
-    public static JScrollPane createTable(String[][] data) {
+    public static JScrollPane createTable(Object[][] data) {
         return new JScrollPane(
                 new JTable(
                         data,

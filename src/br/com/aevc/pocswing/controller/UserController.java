@@ -21,7 +21,7 @@ public class UserController {
         return INSTANCE;
     }
 
-    public ControllerResult register(User user) {
+    public ControllerResult<Void> register(User user) {
         try {
             this.userService.save(user);
             return ControllerResult.success();

@@ -36,6 +36,7 @@ public class H2DatabaseConnectionManager implements ConnectionManager {
      * @throws SQLException Retorna uma exceção caso tenha algum problema durante a
      *                      conexão com o banco de dados
      */
+    @Override
     public Connection getConnection() throws SQLException {
         if (connection != null && !connection.isClosed()) {
             return connection;

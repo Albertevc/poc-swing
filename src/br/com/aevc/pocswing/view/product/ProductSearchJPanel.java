@@ -1,5 +1,6 @@
 package br.com.aevc.pocswing.view.product;
 
+import br.com.aevc.pocswing.model.ProductSearchDTO;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -18,13 +19,13 @@ public class ProductSearchJPanel extends JPanel {
     private final JButton searchJButton;
     private final JButton clearJButtion;
 
-    public ProductSearchJPanel(){
+    public ProductSearchJPanel() {
         super(new MigLayout("wrap 8"));
 
-        this.nameJLabel =  new JLabel("Nome:");
+        this.nameJLabel = new JLabel("Nome:");
         add(nameJLabel);
 
-        this.nameJTextField  = new JTextField(100);
+        this.nameJTextField = new JTextField(100);
         this.nameJLabel.setLabelFor(this.nameJTextField);
         add(this.nameJTextField);
 
@@ -46,4 +47,27 @@ public class ProductSearchJPanel extends JPanel {
         this.clearJButtion = new JButton("Limpar");
         add(this.clearJButtion);
     }
+
+    public JButton getSearchJButton() {
+        return searchJButton;
+    }
+
+    public JButton getClearJButtion() {
+        return clearJButtion;
+    }
+
+    public void clearAllFields() {
+        this.nameJTextField.setText("");
+        this.codeJTextField.setText("");
+        this.typeJTextField.setText("");
+    }
+
+    public ProductSearchDTO getFieldsValues() {
+        return new ProductSearchDTO(
+                this.nameJTextField.getText(),
+                this.codeJTextField.getText(),
+                this.typeJTextField.getText()
+        );
+    }
+
 }
