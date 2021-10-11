@@ -1,24 +1,18 @@
 package br.com.aevc.pocswing.view.product;
 
-import br.com.aevc.pocswing.controller.ControllerResult;
 import br.com.aevc.pocswing.controller.ProductController;
-import br.com.aevc.pocswing.model.ProductVO;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
-
-import static br.com.aevc.pocswing.view.product.ProductJTableScrollPaneFactory.createTable;
 
 public class ProductJPanel extends JPanel {
 
     private final ProductController productController = ProductController.getInstance();
     private final ProductSearchJPanel searchJPanel;
     private final ProductActionJPanel actionJPanel;
-    private JScrollPane jTableJScrollPane;
+    private ProductJTableScrollPaneManager jTableJScrollPane;
 
     public ProductJPanel() {
         super(new MigLayout("wrap 1"));
@@ -29,26 +23,16 @@ public class ProductJPanel extends JPanel {
         this.actionJPanel = new ProductActionJPanel();
         add(this.actionJPanel);
 
-        String[][] data = {
-        };
-        this.jTableJScrollPane = createTable(data);
-        add(this.jTableJScrollPane);
+        this.jTableJScrollPane = new ProductJTableScrollPaneManager();
+        add(this.jTableJScrollPane.getjScrollPane());
 
         this.searchJPanel.getSearchJButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ControllerResult<List<ProductVO>> search = productController.search(searchJPanel.getFieldsValues());
-                Object[][] data = {
-                        search.getResult().toArray()
-                };
-
-                String[][] dataString = {
-                    {"Pera", "123", "3.00", "2"}
-                };
-
-                //FIXME Não está exibindo o resultado na tabela
-                jTableJScrollPane = createTable(dataString);
-                jTableJScrollPane.revalidate();
+                jTableJScrollPane.updateTableModel(
+                        productController.search(searchJPanel.getFieldsValues())
+                                .getResult()
+                );
             }
         });
 
