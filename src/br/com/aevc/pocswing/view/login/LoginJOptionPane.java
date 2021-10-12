@@ -5,7 +5,7 @@ import br.com.aevc.pocswing.controller.LoginController;
 import br.com.aevc.pocswing.controller.UserSessionController;
 import br.com.aevc.pocswing.model.LoginDTO;
 import br.com.aevc.pocswing.model.LoginResponseVO;
-import br.com.aevc.pocswing.view.SwingApplication;
+import br.com.aevc.pocswing.view.SwingApplicationContext;
 
 import static javax.swing.JOptionPane.*;
 
@@ -44,7 +44,9 @@ public class LoginJOptionPane {
                         controllerResult.getResult().getName(),
                         controllerResult.getResult().getRegistration()
                 );
-                SwingApplication.showJMenuBar();
+                SwingApplicationContext
+                        .getSwingApplication()
+                        .showJMenuBar();
             }
 
         } else {

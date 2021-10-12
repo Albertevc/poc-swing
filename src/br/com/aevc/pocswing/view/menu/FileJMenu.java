@@ -1,6 +1,6 @@
 package br.com.aevc.pocswing.view.menu;
 
-import br.com.aevc.pocswing.view.SwingApplication;
+import br.com.aevc.pocswing.view.SwingApplicationContext;
 import br.com.aevc.pocswing.view.product.ProductJInternalFrame;
 import br.com.aevc.pocswing.view.user.UserJInternalFrame;
 
@@ -35,7 +35,8 @@ class FileJMenu extends JMenu {
         addUser.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingApplication.addJInternalFrame(new UserJInternalFrame(1));
+                SwingApplicationContext.getSwingApplication()
+                        .addJInternalFrame(new UserJInternalFrame(1));
             }
         });
         add(addUser);
@@ -46,7 +47,9 @@ class FileJMenu extends JMenu {
         cadastroDeProdutos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SwingApplication.addJInternalFrame(new ProductJInternalFrame(2));
+                SwingApplicationContext
+                        .getSwingApplication()
+                        .addJInternalFrame(new ProductJInternalFrame(2));
             }
         });
         add(cadastroDeProdutos);

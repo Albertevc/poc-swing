@@ -1,7 +1,5 @@
 package br.com.aevc.pocswing.view;
 
-import br.com.aevc.pocswing.view.menu.TopJMenuBar;
-
 import javax.swing.*;
 
 /**
@@ -9,33 +7,30 @@ import javax.swing.*;
  */
 public class SwingApplication {
 
-    private static final SwingApplication INSTANCE = new SwingApplication();
-
     private final JDesktopPane jDesktopPane;
     private final JMenuBar jMenuBar;
     private final JFrame jFrame;
 
-    private SwingApplication() {
-        this.jDesktopPane = new MainJDesktopPane();
-        this.jMenuBar = new TopJMenuBar();
+    SwingApplication(
+            JDesktopPane jDesktopPane,
+            JMenuBar jMenuBar
+            ) {
+        this.jDesktopPane = jDesktopPane;
+        this.jMenuBar = jMenuBar;
 //        this.jMenuBar.setVisible(false);
         this.jFrame = new MainJFrame(this.jDesktopPane, this.jMenuBar);
     }
 
-    public static SwingApplication getInstance(){
-        return INSTANCE;
+    public void showJMenuBar(){
+        this.jMenuBar.setVisible(true);
     }
 
-    public static void showJMenuBar(){
-        INSTANCE.jMenuBar.setVisible(true);
+    public void addJInternalFrame(JInternalFrame jInternalFrame){
+        this.jDesktopPane.add(jInternalFrame);
     }
 
-    public static void addJInternalFrame(JInternalFrame jInternalFrame){
-        INSTANCE.jDesktopPane.add(jInternalFrame);
-    }
-
-    public static void removeJInternalFrame(){
-        INSTANCE.jDesktopPane.removeAll();
+    public void removeJInternalFrame(){
+        this.jDesktopPane.removeAll();
     }
 
 }

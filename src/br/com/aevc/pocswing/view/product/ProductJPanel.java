@@ -12,7 +12,7 @@ public class ProductJPanel extends JPanel {
     private final ProductController productController = ProductController.getInstance();
     private final ProductSearchJPanel searchJPanel;
     private final ProductActionJPanel actionJPanel;
-    private ProductJTableScrollPaneManager jTableJScrollPane;
+    private final ProductJTableScrollPaneManager jTableJScrollPane;
 
     public ProductJPanel() {
         super(new MigLayout("wrap 1"));
