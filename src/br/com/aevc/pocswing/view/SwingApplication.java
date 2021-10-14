@@ -17,7 +17,7 @@ public class SwingApplication {
             ) {
         this.jDesktopPane = jDesktopPane;
         this.jMenuBar = jMenuBar;
-//        this.jMenuBar.setVisible(false);
+        this.jMenuBar.setVisible(false);
         this.jFrame = new MainJFrame(this.jDesktopPane, this.jMenuBar);
     }
 

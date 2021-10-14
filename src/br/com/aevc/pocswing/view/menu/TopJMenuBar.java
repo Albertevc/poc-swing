@@ -1,6 +1,7 @@
 package br.com.aevc.pocswing.view.menu;
 
 import javax.swing.*;
+import java.util.stream.Stream;
 
 /**
  * @author alber
@@ -8,12 +9,13 @@ import javax.swing.*;
  */
 public class TopJMenuBar extends JMenuBar {
 
-	private static final long serialVersionUID = -4416015725560673100L;
-
-	public TopJMenuBar() {
+	TopJMenuBar(
+			JMenu... jMenus
+	) {
 		super();
-		add(new FileJMenu());
-		add(new HelpJMenu());
+		Stream.of(jMenus).forEach(jMenu ->
+				add(jMenu)
+		);
 	}
 
 }

@@ -1,6 +1,7 @@
 package br.com.aevc.pocswing.view;
 
-import br.com.aevc.pocswing.view.menu.TopJMenuBar;
+import br.com.aevc.pocswing.controller.ProductController;
+import br.com.aevc.pocswing.view.menu.TopJMenuBarFactory;
 
 import javax.swing.*;
 
@@ -11,7 +12,7 @@ public class SwingApplicationFactory {
     public static SwingApplication createDefault(){
         swingApplication = new SwingApplication(
                 new MainJDesktopPane(),
-                new TopJMenuBar()
+                TopJMenuBarFactory.createFrom(ProductController.getInstance())
         );
         SwingApplicationContext.initialize(swingApplication);
         return swingApplication;

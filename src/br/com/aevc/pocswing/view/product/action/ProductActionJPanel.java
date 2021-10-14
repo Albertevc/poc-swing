@@ -1,4 +1,4 @@
-package br.com.aevc.pocswing.view.product;
+package br.com.aevc.pocswing.view.product.action;
 
 import javax.swing.*;
 import java.awt.*;

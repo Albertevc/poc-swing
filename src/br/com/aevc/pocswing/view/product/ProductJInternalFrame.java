@@ -1,5 +1,7 @@
 package br.com.aevc.pocswing.view.product;
 
+import br.com.aevc.pocswing.controller.ProductController;
+
 import javax.swing.*;
 import java.beans.PropertyVetoException;
 
@@ -7,7 +9,10 @@ public class ProductJInternalFrame extends JInternalFrame {
 
     static final int xPosition = 30, yPosition = 30;
 
-    public ProductJInternalFrame(int openFrameCount) {
+    ProductJInternalFrame(
+            ProductController productController,
+            int openFrameCount
+    ) {
         super("Cadastro de produtos",
                 false, // resizable
                 true, // closable
@@ -21,10 +26,14 @@ public class ProductJInternalFrame extends JInternalFrame {
             setVisible(true);
             setSelected(true);
 
-            getContentPane().add(new ProductJPanel());
+            getContentPane().add(
+                    ProductJPanelFactory.createFrom(productController)
+            );
         } catch (PropertyVetoException e) {
             e.printStackTrace();
         }
     }
+
+    //TODO implementar remoção do objeto inteiro da memória ao fechar a janela.
 
 }

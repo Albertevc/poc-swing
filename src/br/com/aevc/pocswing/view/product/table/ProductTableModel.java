@@ -1,4 +1,4 @@
-package br.com.aevc.pocswing.view.product;
+package br.com.aevc.pocswing.view.product.table;
 
 import br.com.aevc.pocswing.model.ProductVO;
 
@@ -10,7 +10,7 @@ public class ProductTableModel extends AbstractTableModel {
     private final String[] columnNames;
     private final List<ProductVO> products;
 
-    public ProductTableModel(List<ProductVO> products) {
+    ProductTableModel(List<ProductVO> products) {
         this.columnNames = new String[]{"Nome", "Código", "Valor", "Tipo"};
         this.products = products;
     }

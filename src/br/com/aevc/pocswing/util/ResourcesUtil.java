@@ -11,7 +11,12 @@ public class ResourcesUtil {
                 .getContextClassLoader()
                 .getResources(path)
                 .asIterator();
+    }
 
+    public static URL getResourceFrom(String path) {
+        return Thread.currentThread()
+                .getContextClassLoader()
+                .getResource(path);
     }
 
 }
