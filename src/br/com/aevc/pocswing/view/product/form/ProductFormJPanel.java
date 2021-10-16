@@ -2,6 +2,7 @@ package br.com.aevc.pocswing.view.product.form;
 
 import br.com.aevc.pocswing.model.TypeEnum;
 import br.com.aevc.pocswing.view.component.JFileChooserJPanel;
+import br.com.aevc.pocswing.view.product.table.ProductJTableScrollPaneManager;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class ProductFormJPanel extends JPanel {
     private JComboBox<TypeEnum> typeJComboBox;
     private JFileChooserJPanel imageJFileChooserJPanel;
 
-    public ProductFormJPanel() {
+    public ProductFormJPanel(ProductJTableScrollPaneManager productJTableScrollPaneManager) {
         super(new MigLayout());
 
         setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));

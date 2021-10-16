@@ -2,6 +2,7 @@ package br.com.aevc.pocswing.view.product;
 
 import br.com.aevc.pocswing.controller.ProductController;
 import br.com.aevc.pocswing.view.product.action.ProductActionJPanel;
+import br.com.aevc.pocswing.view.product.form.ProductFormJPanel;
 import br.com.aevc.pocswing.view.product.search.ProductSearchJPanelFactory;
 import br.com.aevc.pocswing.view.product.table.ProductJTableScrollPaneManager;
 
@@ -18,7 +19,8 @@ public class ProductJPanelFactory {
                         productController
                 ),
                 new ProductActionJPanel(),
-                productJTableScrollPaneManager
+                productJTableScrollPaneManager,
+                new ProductFormJPanel(productJTableScrollPaneManager)
         );
     }
 }

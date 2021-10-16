@@ -14,7 +14,8 @@ public class ProductJPanel extends JPanel {
     ProductJPanel(
             SearchJPanel<?, ?> searchJPanel,
             ProductActionJPanel productActionJPanel,
-            JTableScrollPaneManager jTableScrollPaneManager
+            JTableScrollPaneManager jTableScrollPaneManager,
+            ProductFormJPanel productFormJPanel
     ) {
         super(new MigLayout("wrap 1"));
 
@@ -23,7 +24,7 @@ public class ProductJPanel extends JPanel {
 
         JPanel jPanel = new JPanel(new GridLayout(0,2, 10, 0));
         jPanel.add(jTableScrollPaneManager.getjScrollPane());
-        jPanel.add(new ProductFormJPanel());
+        jPanel.add(productFormJPanel);
         add(jPanel);
     }
 
