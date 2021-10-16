@@ -6,7 +6,7 @@ public class MainJDesktopPane extends JDesktopPane {
 
     private int openFrameCount = 0;
 
-    public MainJDesktopPane(){
+    MainJDesktopPane(){
         super();
     }
 }

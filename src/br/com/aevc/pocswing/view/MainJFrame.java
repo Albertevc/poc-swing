@@ -11,7 +11,7 @@ import static br.com.aevc.pocswing.util.ApplicationPropertiesUtil.getProperty;
  */
 class MainJFrame extends JFrame {
 
-	public MainJFrame(Container contentPane, JMenuBar jMenuBar) {
+	MainJFrame(Container contentPane, JMenuBar jMenuBar) {
 		super();
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

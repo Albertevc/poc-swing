@@ -4,6 +4,8 @@ import br.com.aevc.pocswing.model.dao.entity.EntityGenerator;
 import br.com.aevc.pocswing.view.SwingApplicationFactory;
 import br.com.aevc.pocswing.view.login.LoginJOptionPane;
 
+import static br.com.aevc.pocswing.util.ApplicationPropertiesUtil.getProperty;
+
 /**
  * @author alber
  */
@@ -13,7 +15,9 @@ public class Application {
         EntityGenerator.getInstance()
                 .generate();
         SwingApplicationFactory.createDefault();
-        LoginJOptionPane.showLoginDialog();
+        if (Boolean.valueOf(getProperty("poc-swing.security.active", "false"))) {
+            LoginJOptionPane.showLoginDialog();
+        }
     }
 
 }

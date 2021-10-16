@@ -4,6 +4,9 @@ public class SwingApplicationContext {
 
     private static SwingApplication swingApplicationReference;
 
+    SwingApplicationContext(){
+    }
+
     public static void initialize(SwingApplication swingApplication){
         swingApplicationReference = swingApplication;
     }
