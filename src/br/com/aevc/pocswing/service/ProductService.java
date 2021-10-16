@@ -10,17 +10,19 @@ import br.com.aevc.pocswing.service.exception.SystemException;
 import java.sql.SQLException;
 import java.util.List;
 
-import static java.lang.String.format;
-
 public class ProductService {
 
-    private final ProductDAO productDAO = new ProductDAO();
+    private final ProductDAO productDAO;
+
+    public ProductService(ProductDAO productDAO){
+        this.productDAO = productDAO;
+    }
 
     public void save(Product product) throws SystemException, BusinessException {
         try {
             this.productDAO.insert(product);
         } catch (SQLException e) {
-            System.out.println(format("%s %s", e.getMessage(), e));
+            System.out.printf("%s %s%n", e.getMessage(), e);
             throw new SystemException(e.getMessage(), e);
         }
     }
@@ -29,7 +31,7 @@ public class ProductService {
         try {
             return this.productDAO.selectProductsBy(productSearchDTO);
         } catch (SQLException e) {
-            System.out.println(format("%s %s", e.getMessage(), e));
+            System.out.printf("%s %s%n", e.getMessage(), e);
             throw new SystemException(e.getMessage(), e);
         }
     }

@@ -45,9 +45,9 @@ public class ProductRegistrationJPanel extends JPanel {
                 );
 
                 ProductController instance = ProductController.getInstance();
-                ControllerResult<Boolean> result = instance.register(produto);
+                ControllerResult<Void> result = instance.register(produto);
 
-                if (result.getResult()) {
+                if (!result.errorHappened()) {
 //					JOptionPane.showMessageDialog(this, result.getMessage(), "Sucesso",
 //							JOptionPane.INFORMATION_MESSAGE);
                     isToContinueLoop = false;

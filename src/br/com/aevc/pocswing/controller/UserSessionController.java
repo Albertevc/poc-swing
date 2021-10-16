@@ -8,7 +8,6 @@ public class UserSessionController {
     private AuthenticatedUser authenticatedUser;
 
     private UserSessionController(){
-
     }
 
     public static UserSessionController getInstance(){

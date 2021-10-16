@@ -22,7 +22,7 @@ public class ProductSearchJPanel extends SearchJPanel<ProductVO, ProductSearchDT
             JTableModelUpdater<ProductVO> jTableModelUpdater,
             ProductController productController
     ) {
-        super(jTableModelUpdater, new MigLayout("wrap 8"));
+        super(jTableModelUpdater, new MigLayout("wrap 6"));
 
         this.productController = productController;
 
