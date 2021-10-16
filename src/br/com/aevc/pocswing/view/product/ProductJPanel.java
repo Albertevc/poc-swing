@@ -3,14 +3,16 @@ package br.com.aevc.pocswing.view.product;
 import br.com.aevc.pocswing.view.component.JTableScrollPaneManager;
 import br.com.aevc.pocswing.view.component.SearchJPanel;
 import br.com.aevc.pocswing.view.product.action.ProductActionJPanel;
+import br.com.aevc.pocswing.view.product.form.ProductFormJPanel;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class ProductJPanel extends JPanel {
 
     ProductJPanel(
-            SearchJPanel<?,?> searchJPanel,
+            SearchJPanel<?, ?> searchJPanel,
             ProductActionJPanel productActionJPanel,
             JTableScrollPaneManager jTableScrollPaneManager
     ) {
@@ -18,7 +20,11 @@ public class ProductJPanel extends JPanel {
 
         add(searchJPanel);
         add(productActionJPanel);
-        add(jTableScrollPaneManager.getjScrollPane());
+
+        JPanel jPanel = new JPanel(new GridLayout(0,2, 10, 0));
+        jPanel.add(jTableScrollPaneManager.getjScrollPane());
+        jPanel.add(new ProductFormJPanel());
+        add(jPanel);
     }
 
 }
