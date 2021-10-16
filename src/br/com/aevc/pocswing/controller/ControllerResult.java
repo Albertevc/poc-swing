@@ -7,7 +7,7 @@ public class ControllerResult<T> {
     private final Exception exception;
 
 	public static ControllerResult<Void> success(){
-    	return new ControllerResult(null);
+    	return new ControllerResult<>(null);
 	}
 
 	public ControllerResult(T result) {

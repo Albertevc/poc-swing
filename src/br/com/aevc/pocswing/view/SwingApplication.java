@@ -3,6 +3,7 @@ package br.com.aevc.pocswing.view;
 import javax.swing.*;
 
 import static br.com.aevc.pocswing.util.ApplicationPropertiesUtil.getProperty;
+import static java.lang.Boolean.parseBoolean;
 
 /**
  * @author alber
@@ -11,7 +12,6 @@ public class SwingApplication {
 
     private final JDesktopPane jDesktopPane;
     private final JMenuBar jMenuBar;
-    private final JFrame jFrame;
 
     SwingApplication(
             JDesktopPane jDesktopPane,
@@ -19,10 +19,10 @@ public class SwingApplication {
     ) {
         this.jDesktopPane = jDesktopPane;
         this.jMenuBar = jMenuBar;
-        if (Boolean.valueOf(getProperty("poc-swing.security.active", "false"))) {
+        if (parseBoolean(getProperty("poc-swing.security.active", "false"))) {
             this.jMenuBar.setVisible(false);
         }
-        this.jFrame = new MainJFrame(this.jDesktopPane, this.jMenuBar);
+         new MainJFrame(this.jDesktopPane, this.jMenuBar);
     }
 
     public void showJMenuBar() {
@@ -33,8 +33,8 @@ public class SwingApplication {
         this.jDesktopPane.add(jInternalFrame);
     }
 
-    public void removeJInternalFrame() {
-        this.jDesktopPane.removeAll();
+    public void removeJInternalFrame(JInternalFrame jInternalFrame) {
+        this.jDesktopPane.remove(jInternalFrame);
     }
 
 }

@@ -5,7 +5,7 @@ import br.com.aevc.pocswing.model.ProductVO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ProductVODAOMapper implements Mapper {
+public class ProductVODAOMapper implements Mapper<ProductVO> {
 
 	private static final ProductVODAOMapper USUARIO_NAME_DAO_MAPPER = new ProductVODAOMapper();
 

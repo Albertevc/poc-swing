@@ -31,8 +31,6 @@ public class H2DatabaseConnectionManager implements ConnectionManager {
     /**
      * Método para se conectar ao banco de dados com autenticação por senha
      *
-     * @param user     usuário do banco de dados
-     * @param password senha do banco de dados
      * @throws SQLException Retorna uma exceção caso tenha algum problema durante a
      *                      conexão com o banco de dados
      */
@@ -41,7 +39,8 @@ public class H2DatabaseConnectionManager implements ConnectionManager {
         if (connection != null && !connection.isClosed()) {
             return connection;
         } else {
-            return DriverManager.getConnection(H2_CONNECTION_URL, H2_CONNECTION_USERNAME, H2_CONNECTION_PASSWORD);
+            connection = DriverManager.getConnection(H2_CONNECTION_URL, H2_CONNECTION_USERNAME, H2_CONNECTION_PASSWORD);
+            return connection;
         }
     }
 

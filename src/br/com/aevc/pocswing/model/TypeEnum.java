@@ -7,6 +7,6 @@ public enum TypeEnum {
 	ELETRO_DOMESTICO,
 	VESTUARIO,
 	COSMETICO,
-	ESPORTIVO;
-	
+	ESPORTIVO
+
 }

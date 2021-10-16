@@ -10,7 +10,7 @@ import javax.swing.*;
 public class ProductJPanel extends JPanel {
 
     ProductJPanel(
-            SearchJPanel searchJPanel,
+            SearchJPanel<?,?> searchJPanel,
             ProductActionJPanel productActionJPanel,
             JTableScrollPaneManager jTableScrollPaneManager
     ) {

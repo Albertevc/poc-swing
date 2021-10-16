@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class MainJDesktopPane extends JDesktopPane {
 
-    private int openFrameCount = 0;
+    private final int openFrameCount = 0;
 
     MainJDesktopPane(){
         super();

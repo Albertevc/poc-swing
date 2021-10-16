@@ -1,6 +1,7 @@
 package br.com.aevc.pocswing.controller;
 
 import br.com.aevc.pocswing.model.User;
+import br.com.aevc.pocswing.model.dao.UserDAO;
 import br.com.aevc.pocswing.service.UserService;
 import br.com.aevc.pocswing.service.exception.BusinessException;
 import br.com.aevc.pocswing.service.exception.SystemException;
@@ -10,11 +11,12 @@ import br.com.aevc.pocswing.service.exception.SystemException;
  */
 public class UserController {
 
-    private static final UserController INSTANCE = new UserController();
+    private static final UserController INSTANCE = new UserController(new UserService(new UserDAO()));
 
-    private final UserService userService = new UserService();
+    private final UserService userService;
 
-    private UserController() {
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     public static UserController getInstance() {
@@ -26,9 +28,9 @@ public class UserController {
             this.userService.save(user);
             return ControllerResult.success();
         } catch (BusinessException e) {
-            return new ControllerResult(e);
+            return new ControllerResult<>(e);
         } catch (SystemException e) {
-            return new ControllerResult(e);
+            return new ControllerResult<>(e);
         }
     }
 

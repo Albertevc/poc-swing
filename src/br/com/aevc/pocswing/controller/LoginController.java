@@ -2,6 +2,7 @@ package br.com.aevc.pocswing.controller;
 
 import br.com.aevc.pocswing.model.LoginDTO;
 import br.com.aevc.pocswing.model.LoginResponseVO;
+import br.com.aevc.pocswing.model.dao.UserDAO;
 import br.com.aevc.pocswing.service.LoginService;
 import br.com.aevc.pocswing.service.exception.SystemException;
 
@@ -10,11 +11,12 @@ import br.com.aevc.pocswing.service.exception.SystemException;
  */
 public class LoginController {
 
-    private static final LoginController INSTANCE = new LoginController();
+    private static final LoginController INSTANCE = new LoginController(new LoginService(new UserDAO()));
 
-    private final LoginService loginService = new LoginService();
+    private final LoginService loginService;
 
-    private LoginController() {
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
     }
 
     public static LoginController getInstance() {
@@ -23,9 +25,9 @@ public class LoginController {
 
     public ControllerResult<LoginResponseVO> login(LoginDTO loginDTO) {
         try {
-            return new ControllerResult(this.loginService.login(loginDTO));
+            return new ControllerResult<>(this.loginService.login(loginDTO));
         } catch (SystemException e) {
-            return new ControllerResult(e);
+            return new ControllerResult<>(e);
         }
 
     }

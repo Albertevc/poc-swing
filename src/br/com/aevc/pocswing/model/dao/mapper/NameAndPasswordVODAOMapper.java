@@ -5,7 +5,7 @@ import br.com.aevc.pocswing.model.NameAndPasswordVO;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NameAndPasswordVODAOMapper implements Mapper {
+public class NameAndPasswordVODAOMapper implements Mapper<NameAndPasswordVO> {
 
 	private static final NameAndPasswordVODAOMapper USUARIO_NAME_DAO_MAPPER = new NameAndPasswordVODAOMapper();
 

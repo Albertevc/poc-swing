@@ -12,16 +12,20 @@ import static java.lang.String.format;
 
 public class UserService {
 
-    private final UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO;
+
+    public UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     public void save(User user) throws SystemException, BusinessException {
         try {
             this.userDAO.insert(user);
         } catch (JdbcSQLIntegrityConstraintViolationException e) {
-            System.out.println(format("%s %s", e.getMessage(), e));
+            System.out.printf("%s %s%n", e.getMessage(), e);
             throw new BusinessException(format("Usuário %s já existe.", user.getRegistration()));
         } catch (SQLException e) {
-            System.out.println(format("%s %s", e.getMessage(), e));
+            System.out.printf("%s %s%n", e.getMessage(), e);
             throw new SystemException(e.getMessage(), e);
         }
     }

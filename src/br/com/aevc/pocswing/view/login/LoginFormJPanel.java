@@ -6,8 +6,6 @@ import javax.swing.*;
 
 class LoginFormJPanel extends JPanel {
 
-	private static final long serialVersionUID = 9031784451368701659L;
-
 	private final JTextField usernameJTextField = new JTextField(20);
 	private final JPasswordField jPasswordField = new JPasswordField(20);
 

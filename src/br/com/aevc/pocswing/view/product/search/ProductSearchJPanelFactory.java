@@ -6,16 +6,13 @@ import br.com.aevc.pocswing.view.component.JTableModelUpdater;
 
 public class ProductSearchJPanelFactory {
 
-    private static ProductSearchJPanel productSearchJPanel;
-
     public static ProductSearchJPanel createFrom(
             JTableModelUpdater<ProductVO> jTableModelUpdater,
             ProductController productController
     ){
-        productSearchJPanel =  new ProductSearchJPanel(
+        return new ProductSearchJPanel(
                 jTableModelUpdater,
                 productController
         );
-        return productSearchJPanel;
     }
 }

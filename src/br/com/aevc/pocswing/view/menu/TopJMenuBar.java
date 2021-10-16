@@ -13,9 +13,8 @@ public class TopJMenuBar extends JMenuBar {
 			JMenu... jMenus
 	) {
 		super();
-		Stream.of(jMenus).forEach(jMenu ->
-				add(jMenu)
-		);
+		Stream.of(jMenus)
+				.forEach(this::add);
 	}
 
 }

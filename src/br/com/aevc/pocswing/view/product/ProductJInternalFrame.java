@@ -34,6 +34,4 @@ public class ProductJInternalFrame extends JInternalFrame {
         }
     }
 
-    //TODO implementar remoção do objeto inteiro da memória ao fechar a janela.
-
 }

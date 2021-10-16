@@ -6,14 +6,11 @@ import br.com.aevc.pocswing.view.menu.help.HelpJMenuFactory;
 
 public class TopJMenuBarFactory {
 
-    private static TopJMenuBar topJMenuBar;
-
     public static TopJMenuBar createFrom(ProductController productController){
-        topJMenuBar = new TopJMenuBar(
+        return new TopJMenuBar(
                 FileJMenuFactory.createFrom(productController),
                 HelpJMenuFactory.createDefault()
         );
-        return topJMenuBar;
     }
 
 }

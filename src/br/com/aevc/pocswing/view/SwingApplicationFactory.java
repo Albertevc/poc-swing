@@ -7,27 +7,23 @@ import javax.swing.*;
 
 public class SwingApplicationFactory {
 
-    private static SwingApplication swingApplication;
-
-    public static SwingApplication createDefault(){
-        swingApplication = new SwingApplication(
+    public static void createDefault(){
+        SwingApplication swingApplication = new SwingApplication(
                 new MainJDesktopPane(),
                 TopJMenuBarFactory.createFrom(ProductController.getInstance())
         );
         SwingApplicationContext.initialize(swingApplication);
-        return swingApplication;
     }
 
-    public static SwingApplication createFrom(
+    public static void createFrom(
             JDesktopPane jDesktopPane,
             JMenuBar jMenuBar
     ){
-        swingApplication =  new SwingApplication(
+        SwingApplication swingApplication =  new SwingApplication(
                 jDesktopPane,
                 jMenuBar
         );
         SwingApplicationContext.initialize(swingApplication);
-        return swingApplication;
     }
 
 }

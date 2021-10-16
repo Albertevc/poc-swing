@@ -12,7 +12,11 @@ import static java.util.Optional.ofNullable;
 
 public class LoginService {
 
-    private final UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO;
+
+    public LoginService(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     public LoginResponseVO login(LoginDTO loginDTO) throws SystemException {
         try {

@@ -12,7 +12,7 @@ public class ProductJTableScrollPaneManager
         extends JTableScrollPaneManager
         implements JTableModelUpdater<ProductVO> {
 
-    ProductJTableScrollPaneManager() {
+    public ProductJTableScrollPaneManager() {
         super(new ProductTableModel(emptyList()));
     }
 

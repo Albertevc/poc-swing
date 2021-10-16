@@ -8,31 +8,25 @@ import java.util.List;
 
 public abstract class SearchJPanel<T, U> extends JPanel {
 
-    private final JTableModelUpdater<T> jTableModelUpdater;
-
     private final JPanel fieldsJpanel;
-    private final JButton searchJButton;
-    private final JButton clearJButtion;
 
     protected SearchJPanel(JTableModelUpdater<T> jTableModelUpdater, LayoutManager layoutManager) {
         super(new MigLayout("wrap 3"));
 
-        this.jTableModelUpdater = jTableModelUpdater;
-
         this.fieldsJpanel = new JPanel(layoutManager);
         super.add(this.fieldsJpanel);
 
-        this.searchJButton = new JButton("Pesquisar");
-        this.searchJButton
+        JButton searchJButton = new JButton("Pesquisar");
+        searchJButton
                 .addActionListener(actionEvent -> jTableModelUpdater.updateTableModel(
                         search(getFieldsValues())
                 ));
-        super.add(this.searchJButton);
+        super.add(searchJButton);
 
-        this.clearJButtion = new JButton("Limpar");
-        this.clearJButtion
+        JButton clearJButtion = new JButton("Limpar");
+        clearJButtion
                 .addActionListener(actionEvent -> clearAllFields());
-        super.add(this.clearJButtion);
+        super.add(clearJButtion);
 
     }
 
