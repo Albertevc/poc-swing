@@ -35,4 +35,13 @@ public class ProductService {
             throw new SystemException(e.getMessage(), e);
         }
     }
+
+    public void delete(ProductVO productVO) throws SystemException, BusinessException {
+        try {
+            this.productDAO.delete(productVO);
+        } catch (SQLException e) {
+            System.out.printf("%s %s%n", e.getMessage(), e);
+            throw new SystemException(e.getMessage(), e);
+        }
+    }
 }

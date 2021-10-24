@@ -1,11 +1,12 @@
 package br.com.aevc.pocswing.view.product.table;
 
 import br.com.aevc.pocswing.model.ProductVO;
+import br.com.aevc.pocswing.view.component.SelectableTableModel;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.List;
 
-public class ProductTableModel extends AbstractTableModel {
+public class ProductTableModel extends AbstractTableModel implements SelectableTableModel<ProductVO> {
 
     private final String[] columnNames;
     private final List<ProductVO> products;
@@ -56,4 +57,8 @@ public class ProductTableModel extends AbstractTableModel {
         }
     }
 
+    @Override
+    public ProductVO getSelected(int row) {
+        return this.products.get(row);
+    }
 }

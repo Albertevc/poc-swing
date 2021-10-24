@@ -19,6 +19,7 @@ public class ProductVODAOMapper implements Mapper<ProductVO> {
 	@Override
 	public ProductVO map(ResultSet resultSet) throws SQLException {
 		return new ProductVO(
+				resultSet.getLong("ID"),
 				resultSet.getString("NAME"),
 				resultSet.getString("CODE"),
 				resultSet.getDouble("VALUE"),

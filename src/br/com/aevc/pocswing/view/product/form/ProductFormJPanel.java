@@ -1,5 +1,7 @@
 package br.com.aevc.pocswing.view.product.form;
 
+import br.com.aevc.pocswing.controller.ProductController;
+import br.com.aevc.pocswing.model.Product;
 import br.com.aevc.pocswing.model.TypeEnum;
 import br.com.aevc.pocswing.view.component.JFileChooserJPanel;
 import br.com.aevc.pocswing.view.product.table.ProductJTableScrollPaneManager;
@@ -7,6 +9,8 @@ import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.nio.file.Files;
 
 public class ProductFormJPanel extends JPanel {
 
@@ -16,7 +20,10 @@ public class ProductFormJPanel extends JPanel {
     private JComboBox<TypeEnum> typeJComboBox;
     private JFileChooserJPanel imageJFileChooserJPanel;
 
-    public ProductFormJPanel(ProductJTableScrollPaneManager productJTableScrollPaneManager) {
+    public ProductFormJPanel(
+            ProductJTableScrollPaneManager productJTableScrollPaneManager,
+            ProductController productController
+    ) {
         super(new MigLayout());
 
         setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
@@ -51,9 +58,7 @@ public class ProductFormJPanel extends JPanel {
         JPanel jPanel = new JPanel(new MigLayout("wrap 2"));
 
         JButton saveJButton = new JButton("Salvar");
-        saveJButton.addActionListener(actionEvent -> {
-//            FIXME IMPLEMENTAR
-        });
+        saveJButton.addActionListener(actionEvent -> productController.register(getFieldsValues()));
         jPanel.add(saveJButton);
 
         JButton cancelJButton = new JButton("Cancelar");
@@ -63,5 +68,27 @@ public class ProductFormJPanel extends JPanel {
         jPanel.add(cancelJButton);
 
         add(jPanel, "wrap");
+    }
+
+    public Product getFieldsValues() {
+        try {
+            return new Product(
+                    this.nameJTextField.getText(),
+                    this.codeJTextField.getText(),
+                    Double.valueOf(this.valueJTextField.getText()),
+                    this.typeJComboBox.getSelectedItem().toString(),
+                    Files.readAllBytes(this.imageJFileChooserJPanel.getSelectedFile()
+                            .toPath())
+            );
+        } catch (IOException e) {
+            System.out.println("Problemas ao ler o arquivo.");
+            return new Product(
+                    this.nameJTextField.getText(),
+                    this.codeJTextField.getText(),
+                    Double.valueOf(this.valueJTextField.getText()),
+                    this.typeJComboBox.getSelectedItem().toString(),
+                    null
+            );
+        }
     }
 }

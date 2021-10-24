@@ -37,7 +37,6 @@ public class ProductController {
         } catch (SystemException e) {
             return new ControllerResult<>(e);
         }
-
     }
 
     public ControllerResult<List<ProductVO>> search(ProductSearchDTO productSearchDTO) {
@@ -46,6 +45,17 @@ public class ProductController {
         } catch (SystemException e) {
             return new ControllerResult<>(e);
         } catch (BusinessException e) {
+            return new ControllerResult<>(e);
+        }
+    }
+
+    public ControllerResult<Void> delete(ProductVO productVO) {
+        try {
+            this.productService.delete(productVO);
+            return ControllerResult.success();
+        } catch (BusinessException e) {
+            return new ControllerResult<>(e);
+        } catch (SystemException e) {
             return new ControllerResult<>(e);
         }
     }

@@ -23,4 +23,10 @@ public class ProductJTableScrollPaneManager
         productTableModel.fireTableDataChanged();
     }
 
+    public ProductVO getSelectedItem(){
+        int selectedRow = this.jTable.getSelectedRow();
+        ProductTableModel model = (ProductTableModel) this.jTable.getModel();
+        return model.getSelected(selectedRow);
+    }
+
 }

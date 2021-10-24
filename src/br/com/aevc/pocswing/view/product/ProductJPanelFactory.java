@@ -18,9 +18,9 @@ public class ProductJPanelFactory {
                         productJTableScrollPaneManager,
                         productController
                 ),
-                new ProductActionJPanel(),
+                new ProductActionJPanel(productJTableScrollPaneManager, productController),
                 productJTableScrollPaneManager,
-                new ProductFormJPanel(productJTableScrollPaneManager)
+                new ProductFormJPanel(productJTableScrollPaneManager, productController)
         );
     }
 }

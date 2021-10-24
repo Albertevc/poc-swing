@@ -11,6 +11,13 @@ import java.awt.*;
 
 public class ProductJPanel extends JPanel {
 
+    /**
+     * Esta classe só pode ser instanciada por meio de um {@link ProductJPanelFactory}
+     * @param searchJPanel
+     * @param productActionJPanel
+     * @param jTableScrollPaneManager
+     * @param productFormJPanel
+     */
     ProductJPanel(
             SearchJPanel<?, ?> searchJPanel,
             ProductActionJPanel productActionJPanel,
